@@ -9,9 +9,10 @@ type Book = {
 
 type Props = {
     book: Book;
+    onDelete: (id: number) => void;
 }
 
-const BookCard = ({ book }: Props) => {
+const BookCard = ({ book, onDelete }: Props) => {
     return (
         <div className="border p-4 rounded shadow">
             <h2 className="text-lg font-semibold">{book.title}</h2>
@@ -22,6 +23,12 @@ const BookCard = ({ book }: Props) => {
             >
                 {book.status}
             </p>
+            <button
+                onClick={() => onDelete(book.id)}
+                className="text-red-600 hover:underline ml-4"
+            >
+                🗑️ Delete
+            </button>
         </div>
     );
 }
