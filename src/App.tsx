@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { Books, Dashboard, Habits, Tasks } from './pages';
 import { Navbar, Sidebar } from './components';
 import { ROUTES } from './routes';
+import MoodTracker from './components/MoodTracker';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
               <Route path={ROUTES.books} element={<Books />} />
               <Route path={ROUTES.habits} element={<Habits />} />
               <Route path={ROUTES.tasks} element={<Tasks />} />
+              <Route path={ROUTES.moodTracker} element={<MoodTracker />} />
             </Routes>
           </main>
         </div>

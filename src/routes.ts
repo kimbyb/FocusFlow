@@ -3,4 +3,5 @@ export const ROUTES = {
   books: '/books',
   habits: '/habits',
   tasks: '/tasks',
+  moodTracker: '/mood'
 };

@@ -10,7 +10,8 @@ const navItems: NavItem[] = [
     { name: 'Dashboard', path: '/' },
     { name: 'Books', path: '/books' },
     { name: 'Habits', path: '/habits' },
-    { name: 'Tasks', path: '/tasks' }
+    { name: 'Tasks', path: '/tasks' },
+    { name: 'Mood Tracker', path: '/mood' }
 ]
 
 const Sidebar = () => {
