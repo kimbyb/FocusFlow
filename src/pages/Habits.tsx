@@ -11,6 +11,12 @@ const Habits = () => {
     const [completed, setCompleted] = useState(false);
     const [showForm, setShowForm] = useState(false);
 
+    const handleToggleComplete = (id: number) => {
+        const updated = habits.map((h) =>
+            h.id === id ? { ...h, completed: !h.completed } : h
+        );
+        setHabits(updated);
+    };
 
     useEffect(() => {
         const saved = localStorage.getItem('habits');
@@ -55,11 +61,16 @@ const Habits = () => {
                         placeholder="Name"
                         className="border p-2 w-full"
                     />
-                    <input
-                        type="checkbox"
-                        checked={completed}
-                        onChange={() => setCompleted(!completed)}
-                    />
+                    <label className="flex items-center space-x-2">
+                        <input
+                            type="checkbox"
+                            checked={completed}
+                            onChange={() => setCompleted(!completed)}
+                            className="accent-blue-500 w-5 h-5"
+                        />
+                        <span className="text-gray-700">Mark as completed?</span>
+                    </label>
+
                     <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded">
                         ✅ Add
                     </button>
@@ -67,7 +78,7 @@ const Habits = () => {
             )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {habits.map((habits) => (
-                    <HabitsCard key={habits.id} habit={habits}
+                    <HabitsCard key={habits.id} habit={habits} onToggleComplete={handleToggleComplete}
                     />
                 ))}
             </div>
